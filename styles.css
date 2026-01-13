@@ -110,7 +110,7 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: rgba(15, 23, 42, 0.95);
+    background-color: #ffffff;
     backdrop-filter: blur(10px);
     transition: var(--transition);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -122,6 +122,19 @@ header.over-hero {
     background-color: transparent !important;
     backdrop-filter: blur(0px);
     box-shadow: none;
+}
+
+/* Colores blancos cuando está sobre el hero */
+header.over-hero .logo {
+    color: var(--white) !important;
+}
+
+header.over-hero .nav-link {
+    color: var(--white) !important;
+}
+
+header.over-hero .bar {
+    background-color: var(--white) !important;
 }
 
 header.scrolled {
@@ -153,7 +166,7 @@ header.scrolled .bar {
 .logo {
     font-size: 1.8rem;
     font-weight: 300;
-    color: var(--white);
+    color: var(--primary-color);
     letter-spacing: -1px;
     display: flex;
     align-items: center;
@@ -181,7 +194,7 @@ header.scrolled .bar {
 }
 
 .nav-link {
-    color: var(--white);
+    color: var(--primary-color);
     font-size: 0.95rem;
     font-weight: 500;
     opacity: 0.9;
@@ -228,7 +241,7 @@ header.scrolled .bar {
     height: 3px;
     margin: 3px 0;
     transition: var(--transition);
-    background-color: var(--white);
+    background-color: var(--primary-color);
     border-radius: 2px;
     transform-origin: center;
 }
