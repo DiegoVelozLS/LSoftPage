@@ -11,12 +11,31 @@
 <body>
     <header id="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo"><img src="assets/Logo-Listosoft.png" alt="Listosoft" class="logo-img"></a>
+            <a href="#" class="logo">
+                <img src="assets/Logo-Listosoft.png" alt="Listosoft" class="logo-img logo-dark">
+                <img src="assets/Logo-ListosoftBlanco.png" alt="Listosoft" class="logo-img logo-white">
+            </a>
             
             <nav class="nav-menu" id="nav-menu">
                 <ul>
-                    <li><a href="#soluciones" class="nav-link">Soluciones</a></li>
-                    <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#soluciones" class="nav-link">Soluciones <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#soluciones" class="dropdown-link">Contabilidad Avanzada</a></li>
+                            <li><a href="#soluciones" class="dropdown-link">Facturación Electrónica</a></li>
+                            <li><a href="#soluciones" class="dropdown-link">Inventarios y Logística</a></li>
+                            <li><a href="#soluciones" class="dropdown-link">Nómina y RRHH</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#beneficios" class="nav-link">Beneficios <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#beneficios" class="dropdown-link">Estabilidad Garantizada</a></li>
+                            <li><a href="#beneficios" class="dropdown-link">Seguridad de Datos</a></li>
+                            <li><a href="#beneficios" class="dropdown-link">Soporte Especializado</a></li>
+                            <li><a href="#beneficios" class="dropdown-link">Escalabilidad</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#sistema" class="nav-link">El Sistema</a></li>
                     <li><a href="#contacto" class="btn btn-primary nav-cta">Solicitar información</a></li>
                 </ul>

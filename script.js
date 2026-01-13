@@ -45,10 +45,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cerrar menú al hacer clic en un enlace
     navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Si el enlace tiene un submenú, no cerrar el menú principal
+            const navItem = link.closest('.nav-item');
+            if (navItem && navItem.classList.contains('dropdown')) {
+                e.preventDefault();
+                // Toggle del submenú en móvil
+                if (window.innerWidth <= 768) {
+                    navItem.classList.toggle('active');
+                }
+            } else {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+    
+    // Cerrar submenús al hacer clic en un enlace del dropdown
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
             document.body.style.overflow = '';
+            // Cerrar todos los submenús
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
         });
     });
 
