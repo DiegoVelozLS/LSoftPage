@@ -1,0 +1,161 @@
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Manejo del Header Sticky
+    const navbar = document.getElementById('navbar');
+    const heroSection = document.getElementById('inicio');
+    
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        
+        // Si estamos dentro de la sección hero, hacer el navbar transparente
+        if (scrollY < heroBottom - 100) {
+            navbar.classList.add('over-hero');
+            navbar.classList.remove('scrolled');
+        } else {
+            // Si salimos del hero, aplicar el estilo scrolled con color azul
+            navbar.classList.remove('over-hero');
+            navbar.classList.add('scrolled');
+        }
+    });
+    
+    // Verificar el estado inicial al cargar la página
+    const initialScroll = window.scrollY;
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    if (initialScroll < heroBottom - 100) {
+        navbar.classList.add('over-hero');
+    }
+
+    // 2. Menú Móvil (Hamburger)
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navCta = document.querySelector('.nav-cta');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        // Prevenir scroll del body cuando el menú está abierto
+        if (navMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Cerrar menú al hacer clic en el CTA también
+    if (navCta) {
+        navCta.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', (e) => {
+        const isClickInsideMenu = navMenu.contains(e.target);
+        const isClickOnHamburger = hamburger.contains(e.target);
+        
+        if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // 3. Animaciones al hacer Scroll (Intersection Observer)
+    const observerOptions = {
+        threshold: 0.15, // Se activa cuando el 15% del elemento es visible
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Dejar de observar una vez animado
+            }
+        });
+    }, observerOptions);
+
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(el => observer.observe(el));
+
+    // 3.5. Video de YouTube - Reproducción automática cuando aparece
+    const videoContainer = document.getElementById('video-container');
+    const youtubeVideo = document.getElementById('youtube-video');
+    let videoLoaded = false;
+
+    if (videoContainer && youtubeVideo) {
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !videoLoaded) {
+                    // Cargar el video con autoplay cuando aparece en el viewport
+                    const videoId = 'X3yP56Ep1ZU';
+                    const startTime = 1; // Empieza en el segundo 1
+                    youtubeVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&start=${startTime}&rel=0&modestbranding=1`;
+                    videoLoaded = true;
+                    videoObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3 // Se activa cuando el 30% del contenedor es visible
+        });
+
+        videoObserver.observe(videoContainer);
+    }
+
+    // 4. Manejo del Formulario de Contacto (Simulado)
+    const contactForm = document.getElementById('contactForm');
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Simulación de envío
+        const submitBtn = contactForm.querySelector('button');
+        const originalText = submitBtn.innerText;
+        
+        submitBtn.innerText = 'Enviando...';
+        submitBtn.disabled = true;
+        submitBtn.style.backgroundColor = '#94a3b8'; // Gris visual
+
+        setTimeout(() => {
+            alert('¡Gracias por su interés!\n\nSus datos han sido recibidos. Un asesor de Listosoft se comunicará con usted en breve.');
+            contactForm.reset();
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+            submitBtn.style.backgroundColor = ''; // Volver al color original
+        }, 1500);
+    });
+
+    // 5. Scroll Suave para anclas (compatibilidad extra)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+});
