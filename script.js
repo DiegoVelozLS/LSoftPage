@@ -1,8 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
+// Función para inicializar cuando los componentes estén cargados
+function initializeApp() {
     // 1. Manejo del Header Sticky
     const navbar = document.getElementById('navbar');
     const heroSection = document.getElementById('inicio');
+    
+    if (!navbar || !heroSection) {
+        // Si los componentes aún no están cargados, esperar un poco más
+        setTimeout(initializeApp, 100);
+        return;
+    }
     
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
@@ -142,7 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Manejo del Formulario de Contacto (Simulado)
     const contactForm = document.getElementById('contactForm');
 
-    contactForm.addEventListener('submit', (e) => {
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
         // Simulación de envío
@@ -160,7 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = false;
             submitBtn.style.backgroundColor = ''; // Volver al color original
         }, 1500);
-    });
+        });
+    }
 
     // 5. Scroll Suave para anclas (compatibilidad extra)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -182,4 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+}
+
+// Esperar a que los componentes se carguen antes de inicializar
+document.addEventListener('DOMContentLoaded', () => {
+    // Esperar un momento para que los componentes se carguen
+    setTimeout(initializeApp, 200);
 });

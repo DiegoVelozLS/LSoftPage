@@ -9,45 +9,8 @@
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
-    <header id="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <img src="assets/Logo-Listosoft.png" alt="Listosoft" class="logo-img logo-dark">
-                <img src="assets/Logo-ListosoftBlanco.png" alt="Listosoft" class="logo-img logo-white">
-            </a>
-            
-            <nav class="nav-menu" id="nav-menu">
-                <ul>
-                    <li class="nav-item dropdown">
-                        <a href="#soluciones" class="nav-link">Soluciones <span class="dropdown-arrow">▼</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#soluciones" class="dropdown-link">Contabilidad Avanzada</a></li>
-                            <li><a href="#soluciones" class="dropdown-link">Facturación Electrónica</a></li>
-                            <li><a href="#soluciones" class="dropdown-link">Inventarios y Logística</a></li>
-                            <li><a href="#soluciones" class="dropdown-link">Nómina y RRHH</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#beneficios" class="nav-link">Beneficios <span class="dropdown-arrow">▼</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#beneficios" class="dropdown-link">Estabilidad Garantizada</a></li>
-                            <li><a href="#beneficios" class="dropdown-link">Seguridad de Datos</a></li>
-                            <li><a href="#beneficios" class="dropdown-link">Soporte Especializado</a></li>
-                            <li><a href="#beneficios" class="dropdown-link">Escalabilidad</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#sistema" class="nav-link">El Sistema</a></li>
-                    <li><a href="#contacto" class="btn btn-primary nav-cta">Solicitar información</a></li>
-                </ul>
-            </nav>
-
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </header>
+    <!-- Contenedor para el navbar (se carga dinámicamente) -->
+    <div id="navbar-container"></div>
 
     <section class="hero" id="inicio">
         <div class="container hero-container">
@@ -56,7 +19,7 @@
                 <p>El sistema contable para optimizar procesos contables, administrativos y financieros. Diseñado para garantizar estabilidad, seguridad y cumplimiento normativo.</p>
                 <div class="hero-buttons">
                     <a href="#contacto" class="btn btn-accent">Agendar Demostración</a>
-                    <a href="#soluciones" class="btn btn-outline">Conocer Módulos</a>
+                    <a href="/pages/ejemplo.html" class="btn btn-outline">Conocer Módulos</a>
                 </div>
             </div>
             <div class="hero-visual fade-in">
@@ -211,41 +174,11 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-col">
-                <a href="#" class="logo footer-logo"><img src="assets/Logo-Listosoft.png" alt="Listosoft" class="logo-img"></a>
-                <p>Software ERP líder para la gestión empresarial moderna.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Empresa</h4>
-                <ul>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Trayectoria</a></li>
-                    <li><a href="#">Partners</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Producto</h4>
-                <ul>
-                    <li><a href="#">Contabilidad</a></li>
-                    <li><a href="#">Facturación</a></li>
-                    <li><a href="#">Inventarios</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Política de Privacidad</a></li>
-                    <li><a href="#">Términos de Uso</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Listosoft S.A. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <!-- Contenedor para el footer (se carga dinámicamente) -->
+    <div id="footer-container"></div>
 
+    <!-- Scripts: primero cargar componentes, luego la funcionalidad -->
+    <script src="components.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
