@@ -1100,3 +1100,36 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+.carouselClientes {
+  width: 100%;
+  overflow: hidden;
+  background: #f8fafc;
+  padding: 40px 0;
+}
+
+.carouselClientes-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.carouselClientes-track img {
+  height: 60px;
+  margin: 0 40px;
+  flex-shrink: 0;
+}
+
+.carouselClientes:hover .carouselClientes-track {
+  animation-play-state: paused;
+}
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
