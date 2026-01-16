@@ -1,0 +1,116 @@
+/* Mockup ERP con efecto 3D */
+.erp-mockup {
+    width: 100%;
+    max-width: 650px;
+    perspective: 1000px;
+}
+
+.mockup-window {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15), 
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+    transform: rotateY(-5deg) rotateX(5deg);
+    transition: transform 0.6s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+.mockup-window:hover {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: rotateY(-5deg) rotateX(5deg) translateY(0);
+    }
+    50% {
+        transform: rotateY(-5deg) rotateX(5deg) translateY(-10px);
+    }
+}
+
+.window-header {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    padding: 12px 16px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.window-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.window-content {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    min-height: 350px;
+    background: #ffffff;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 60px;
+}
+
+.menu-item {
+    height: 40px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.menu-item.active {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    border: 1px solid #3b82f6;
+}
+
+.menu-item:hover {
+    background: #e0f2fe;
+    border-color: #3b82f6;
+    transform: translateX(4px);
+}
+
+.main-area {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.chart-bar {
+    flex: 1;
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 6px 6px 0 0;
+    transition: all 0.4s ease;
+    animation: growBar 1.5s ease-out;
+    box-shadow: 0 -4px 20px rgba(59, 130, 246, 0.2);
+}
+
+.chart-bar:hover {
+    background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 100%);
+    transform: translateY(-8px);
+}
+
+@keyframes growBar {
+    from {
+        height: 0 !important;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
