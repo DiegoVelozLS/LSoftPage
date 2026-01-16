@@ -28,3 +28,4 @@ document.addEventListener('DOMContentLoaded', () => {
     loadComponent(`${basePath}components/footer.html`, 'footer-container');
 });
 
+

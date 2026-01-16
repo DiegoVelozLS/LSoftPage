@@ -1,4 +1,59 @@
 // Función para inicializar cuando los componentes estén cargados
+function initializeCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    let currentSlide = 0;
+    let autoplayInterval;
+
+    function showSlide(index) {
+        // Validar índice
+        if (index >= slides.length) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else {
+            currentSlide = index;
+        }
+
+        // Remover clase active de todas las diapositivas e indicadores
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+
+        // Agregar clase active a la diapositiva actual e indicador
+        slides[currentSlide].classList.add('active');
+        indicators[currentSlide].classList.add('active');
+    }
+
+    // Autoplay
+    function startAutoplay() {
+        autoplayInterval = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 4000); // Cambiar imagen cada 4 segundos
+    }
+
+    // Parar autoplay
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    // Click en indicadores
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            stopAutoplay();
+            showSlide(index);
+            startAutoplay();
+        });
+    });
+
+    // Parar autoplay cuando el usuario interactúa
+    document.querySelector('.carousel-container').addEventListener('mouseenter', stopAutoplay);
+    document.querySelector('.carousel-container').addEventListener('mouseleave', startAutoplay);
+
+    // Inicializar
+    showSlide(0);
+    startAutoplay();
+}
+
 function initializeApp() {
     // 1. Manejo del Header Sticky
     const navbar = document.getElementById('navbar');
@@ -32,7 +87,10 @@ function initializeApp() {
         navbar.classList.add('over-hero');
     }
 
-    // 2. Menú Móvil (Hamburger)
+    // 2. Carrusel de Imágenes
+    initializeCarousel();
+
+    // 3. Menú Móvil (Hamburger)
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');

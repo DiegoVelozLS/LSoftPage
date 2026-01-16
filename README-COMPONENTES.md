@@ -85,3 +85,4 @@ Si creas páginas en la carpeta `pages/`, ajusta las rutas:
 
 Los cambios se aplicarán automáticamente a todas las páginas que usen estos componentes.
 
+
