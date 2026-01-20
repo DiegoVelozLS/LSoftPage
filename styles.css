@@ -575,6 +575,13 @@ header.scrolled .logo-dark {
     box-shadow: 0 4px 10px rgba(59, 130, 246, 0.1);
 }
 
+.icon-box i {
+    width: 36px;
+    height: 36px;
+    stroke-width: 2.5;
+    color: var(--accent-color);
+}
+
 .card:hover .icon-box {
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0 6px 20px rgba(59, 130, 246, 0.2);
@@ -712,6 +719,17 @@ header.scrolled .logo-dark {
     align-items: center;
     justify-content: center;
     transition: var(--transition);
+}
+
+.contact-icon i {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+    color: var(--accent-color);
+}
+
+.whatsapp-icon i {
+    color: #25D366;
 }
 
 .info-item:hover .contact-icon {

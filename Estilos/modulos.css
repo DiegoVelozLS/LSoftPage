@@ -32,6 +32,19 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15);
+    transition: var(--transition);
+}
+
+.modulo-icon-left:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.25);
+}
+
+.modulo-icon-left i {
+    width: 32px;
+    height: 32px;
+    stroke-width: 2.5;
+    color: var(--accent-color);
 }
 
 .modulo-header h2 {
@@ -118,171 +131,6 @@
 .modulo-card li:hover {
     padding-left: 30px;
     color: var(--accent-color);
-}
-
-/* ============================================
-   SISTEMA DE ICONOS - 24-28px, líneas 2.5px
-============================================ */
-
-/* GESTIÓN COMERCIAL - Carrito */
-.icon-comercial {
-    width: 28px;
-    height: 26px;
-    position: relative;
-    display: inline-block;
-}
-
-.icon-comercial::before {
-    content: "";
-    width: 24px;
-    height: 18px;
-    border: 2.5px solid var(--accent-color);
-    border-radius: 4px 4px 8px 8px;
-    position: absolute;
-    bottom: 0;
-    left: 2px;
-}
-
-.icon-comercial::after {
-    content: "";
-    width: 18px;
-    height: 2.5px;
-    background: var(--accent-color);
-    border-radius: 2px;
-    position: absolute;
-    bottom: 16px;
-    left: 5px;
-}
-
-/* COMPRAS Y PROVEEDORES - Documento */
-.icon-compras {
-    width: 24px;
-    height: 28px;
-    position: relative;
-    display: inline-block;
-}
-
-.icon-compras::before {
-    content: "";
-    width: 24px;
-    height: 28px;
-    border: 2.5px solid var(--accent-color);
-    border-radius: 4px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.icon-compras::after {
-    content: "";
-    width: 14px;
-    height: 2.5px;
-    background: var(--accent-color);
-    border-radius: 2px;
-    position: absolute;
-    top: 8px;
-    left: 5px;
-    box-shadow: 
-        0 6px 0 var(--accent-color),
-        0 12px 0 var(--accent-color);
-}
-
-/* FINANZAS Y CONTABILIDAD - Billetera */
-.icon-finanzas {
-    width: 28px;
-    height: 24px;
-    position: relative;
-    display: inline-block;
-}
-
-.icon-finanzas::before {
-    content: "";
-    width: 28px;
-    height: 20px;
-    border: 2.5px solid var(--accent-color);
-    border-radius: 6px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.icon-finanzas::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    border: 2.5px solid var(--accent-color);
-    border-radius: 50%;
-    position: absolute;
-    top: 6px;
-    right: 6px;
-}
-
-/* NÓMINA Y TRIBUTACIÓN - Usuario */
-.icon-nomina {
-    width: 26px;
-    height: 28px;
-    position: relative;
-    display: inline-block;
-}
-
-.icon-nomina::before {
-    content: "";
-    width: 14px;
-    height: 14px;
-    border: 2.5px solid var(--accent-color);
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 6px;
-}
-
-.icon-nomina::after {
-    content: "";
-    width: 26px;
-    height: 14px;
-    border: 2.5px solid var(--accent-color);
-    border-top: none;
-    border-radius: 0 0 13px 13px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-/* GESTIÓN Y ANÁLISIS - Gráfico */
-.icon-analisis {
-    width: 28px;
-    height: 26px;
-    position: relative;
-    display: inline-block;
-}
-
-.icon-analisis::before {
-    content: "";
-    width: 2.5px;
-    height: 24px;
-    background: var(--accent-color);
-    border-radius: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.icon-analisis::after {
-    content: "";
-    width: 26px;
-    height: 2.5px;
-    background: var(--accent-color);
-    border-radius: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    box-shadow: 
-        6px -9px 0 0 var(--accent-color),
-        6px -8px 0 1.5px var(--accent-color),
-        13px -15px 0 0 var(--accent-color),
-        13px -14px 0 1.5px var(--accent-color),
-        20px -21px 0 0 var(--accent-color),
-        20px -20px 0 1.5px var(--accent-color);
 }
 
 /* --- CTA Section --- */
