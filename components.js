@@ -9,6 +9,10 @@ async function loadComponent(componentPath, containerId) {
         const container = document.getElementById(containerId);
         if (container) {
             container.innerHTML = html;
+            // Reinicializar iconos de Lucide después de cargar el componente
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         } else {
             console.error(`No se encontró el contenedor con id: ${containerId}`);
         }
@@ -27,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     loadComponent(`${basePath}components/navbar.html`, 'navbar-container');
     loadComponent(`${basePath}components/footer.html`, 'footer-container');
 });
+
+
 
 
 
