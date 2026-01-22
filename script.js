@@ -58,17 +58,17 @@ function initializeApp() {
     // 1. Manejo del Header Sticky
     const navbar = document.getElementById('navbar');
     const heroSection = document.getElementById('inicio');
-    
+
     if (!navbar || !heroSection) {
         // Si los componentes aún no están cargados, esperar un poco más
         setTimeout(initializeApp, 100);
         return;
     }
-    
+
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        
+
         // Si estamos dentro de la sección hero, hacer el navbar transparente
         if (scrollY < heroBottom - 100) {
             navbar.classList.add('over-hero');
@@ -79,7 +79,7 @@ function initializeApp() {
             navbar.classList.add('scrolled');
         }
     });
-    
+
     // Verificar el estado inicial al cargar la página
     const initialScroll = window.scrollY;
     const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
@@ -125,7 +125,7 @@ function initializeApp() {
             }
         });
     });
-    
+
     // Cerrar submenús al hacer clic en un enlace del dropdown
     const dropdownLinks = document.querySelectorAll('.dropdown-link');
     dropdownLinks.forEach(link => {
@@ -153,7 +153,7 @@ function initializeApp() {
     document.addEventListener('click', (e) => {
         const isClickInsideMenu = navMenu.contains(e.target);
         const isClickOnHamburger = hamburger.contains(e.target);
-        
+
         if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
@@ -208,23 +208,23 @@ function initializeApp() {
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Simulación de envío
-        const submitBtn = contactForm.querySelector('button');
-        const originalText = submitBtn.innerText;
-        
-        submitBtn.innerText = 'Enviando...';
-        submitBtn.disabled = true;
-        submitBtn.style.backgroundColor = '#94a3b8'; // Gris visual
+            e.preventDefault();
 
-        setTimeout(() => {
-            alert('¡Gracias por su interés!\n\nSus datos han sido recibidos. Un asesor de Listosoft se comunicará con usted en breve.');
-            contactForm.reset();
-            submitBtn.innerText = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.backgroundColor = ''; // Volver al color original
-        }, 1500);
+            // Simulación de envío
+            const submitBtn = contactForm.querySelector('button');
+            const originalText = submitBtn.innerText;
+
+            submitBtn.innerText = 'Enviando...';
+            submitBtn.disabled = true;
+            submitBtn.style.backgroundColor = '#94a3b8'; // Gris visual
+
+            setTimeout(() => {
+                alert('¡Gracias por su interés!\n\nSus datos han sido recibidos. Un asesor de Listosoft se comunicará con usted en breve.');
+                contactForm.reset();
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.backgroundColor = ''; // Volver al color original
+            }, 1500);
         });
     }
 
@@ -234,13 +234,13 @@ function initializeApp() {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerOffset = 80;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: "smooth"
@@ -250,8 +250,18 @@ function initializeApp() {
     });
 }
 
-// Esperar a que los componentes se carguen antes de inicializar
-document.addEventListener('DOMContentLoaded', () => {
-    // Esperar un momento para que los componentes se carguen
-    setTimeout(initializeApp, 200);
+// Esperar evento personalizado de componentes
+document.addEventListener('componentsLoaded', () => {
+    initializeApp();
 });
+
+// Fallback por seguridad (si el evento ya ocurrió antes de este script)
+// Aunque en este caso por el orden de los scripts en HTML (components.js luego script.js)
+// script.js se ejecutará después, pero el evento DOMContentLoaded dentro de components.js
+// asegura que el fetch ocurra después.
+// Dejamos un check simple por robustez.
+if (document.querySelector('#navbar-container').children.length > 0) {
+    // Si ya hay contenido, quizás el evento ya pasó (raro con esta estructura, pero preventivo)
+    console.log('Componentes ya presentes al cargar script.js');
+    initializeApp();
+}
