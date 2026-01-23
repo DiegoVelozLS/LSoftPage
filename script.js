@@ -265,3 +265,101 @@ if (document.querySelector('#navbar-container').children.length > 0) {
     console.log('Componentes ya presentes al cargar script.js');
     initializeApp();
 }
+
+// --- Configuración de Partículas (Network Effect) ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Verificar si existe el contenedor y la librería
+    const particlesContainer = document.getElementById('tsparticles');
+    if (particlesContainer && window.tsParticles) {
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            fullScreen: { enable: false }, // Importante: no pantalla completa, solo contenedor
+            particles: {
+                number: {
+                    value: 60, // Cantidad de puntos
+                    density: {
+                        enable: true,
+                        area: 800
+                    }
+                },
+                color: {
+                    value: "#ffffff" // Puntos blancos
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                links: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.2, // Líneas sutiles
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.5, // Movimiento lento y tech
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    outModes: {
+                        default: "bounce"
+                    },
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detectsOn: "canvas",
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: "grab" // Las líneas se conectan al mouse
+                    },
+                    onClick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        line_linked: {
+                            opacity: 0.5
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            detectRetina: true,
+            background: {
+                color: "transparent" // Fondo transparente (ya lo da el CSS de .hero)
+            }
+        });
+    }
+});

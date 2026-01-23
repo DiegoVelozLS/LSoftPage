@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Soporte | Listosoft ERP</title>
+    <meta name="description"
+        content="Centro de ayuda y soporte técnico de Listosoft. Contacte a nuestro equipo, acceda a manuales y recursos para optimizar su gestión.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://listosoft.com/pages/soporte.html">
+    <meta property="og:title" content="Centro de Soporte | Listosoft ERP">
+    <meta property="og:description"
+        content="Asistencia técnica especializada y recursos para usuarios de Listosoft ERP.">
+    <meta property="og:image" content="https://listosoft.com/assets/IsotipoListosoft.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../Estilos/mockup.css">
+    <!-- Reutilizamos estilos de módulos para consistencia en grids y headers -->
+    <link rel="stylesheet" href="../Estilos/modulos.css">
+    <link rel="icon" href="../assets/IsotipoListosoft.png">
+
+    <style>
+        /* Estilos específicos para la página de soporte (inline por ahora para no ensuciar styles.css global innecesariamente) */
+        .support-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--white);
+        }
+
+        .contact-method-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .contact-method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .contact-icon-large {
+            width: 80px;
+            height: 80px;
+            background: #eff6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .contact-icon-large i {
+            width: 40px;
+            height: 40px;
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .resource-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+
+        .resource-item i {
+            width: 18px;
+            height: 18px;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Contenedor para el navbar (se carga dinámicamente) -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero--secondary support-hero" id="inicio">
+        <div class="container hero--secondary-content">
+            <h1>Centro de Soporte</h1>
+            <p>Estamos aquí para ayudarle. Encuentre respuestas, contacte a nuestros expertos y mantenga su operación en
+                marcha.</p>
+        </div>
+    </section>
+
+    <!-- Canales de Atención -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>¿Cómo podemos ayudarle hoy?</h2>
+                <p>Seleccione el canal de atención que mejor se adapte a su necesidad.</p>
+            </div>
+
+            <div class="cards-grid fade-in">
+                <!-- Tarjeta 1: Soporte Técnico -->
+                <div class="contact-method-card">
+                    <div class="contact-icon-large">
+                        <i data-lucide="wrench"></i>
+                    </div>
+                    <h3>Soporte Técnico</h3>
+                    <p>Resolución de incidencias técnicas, errores de sistema o problemas de conexión.</p>
+                    <div style="margin-top: auto; padding-top: 20px;">
+                        <a href="https://wa.me/593994794348?text=Hola,%20tengo%20un%20problema%20técnico"
+                            target="_blank" class="btn btn-outline"
+                            style="color: var(--accent-color); border-color: var(--accent-color);">
+                            Chat Técnico
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Consultas Funcionales -->
+                <div class="contact-method-card">
+                    <div class="contact-icon-large">
+                        <i data-lucide="help-circle"></i>
+                    </div>
+                    <h3>Consultas Funcionales</h3>
+                    <p>Dudas sobre cómo realizar procesos específicos o uso de módulos del ERP.</p>
+                    <div style="margin-top: auto; padding-top: 20px;">
+                        <a href="mailto:soporte@listosoft.com" class="btn btn-outline"
+                            style="color: var(--accent-color); border-color: var(--accent-color);">
+                            Enviar Correo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Asistencia Remota -->
+                <div class="contact-method-card">
+                    <div class="contact-icon-large">
+                        <i data-lucide="monitor-check"></i>
+                    </div>
+                    <h3>Soporte Remoto</h3>
+                    <p>Permita que un técnico se conecte a su equipo para solucionar problemas en tiempo real.</p>
+                    <div style="margin-top: auto; padding-top: 20px;">
+                        <a href="https://anydesk.com/es/downloads" target="_blank" class="btn btn-primary">
+                            Descargar AnyDesk
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos y Documentación -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Recursos y Manuales</h2>
+                <p>Documentación oficial para sacar el máximo provecho a Listosoft.</p>
+            </div>
+
+            <div class="modulo-grid fade-in">
+                <div class="modulo-card">
+                    <h3>Manuales Frecuentes</h3>
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <i data-lucide="file-text"></i>
+                            <a href="https://listosoft.com/Manuales/LSoft/Proformas.html" target="_blank">Guía de
+                                Proformas y Pedidos</a>
+                        </li>
+                        <li class="resource-item">
+                            <i data-lucide="file-text"></i>
+                            <a href="#">Emisión de Factura Electrónica</a>
+                        </li>
+                        <li class="resource-item">
+                            <i data-lucide="file-text"></i>
+                            <a href="#">Cierre de Caja Diario</a>
+                        </li>
+                        <li class="resource-item">
+                            <i data-lucide="file-text"></i>
+                            <a href="#">Ingreso de Proveedores</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="modulo-card">
+                    <h3>Video Tutoriales</h3>
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <i data-lucide="play-circle"></i>
+                            <a href="#" target="_blank">Introducción al Módulo Comercial</a>
+                        </li>
+                        <li class="resource-item">
+                            <i data-lucide="play-circle"></i>
+                            <a href="#" target="_blank">Cómo realizar retenciones</a>
+                        </li>
+                        <li class="resource-item">
+                            <i data-lucide="play-circle"></i>
+                            <a href="#" target="_blank">Gestión de Inventarios 101</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Contacto Directo -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>¿No encuentra lo que busca?</h2>
+                <p>Nuestro equipo de soporte está disponible de Lunes a Viernes de 8:30 a 17:30.</p>
+                <a href="tel:+593994794348" class="btn btn-accent btn-large">Llamar a Soporte</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor para el footer (se carga dinámicamente) -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="../components.js"></script>
+    <script src="../script.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+
+        // Escuchar carga de componentes para reinicializar si hace falta
+        document.addEventListener('componentsLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>
