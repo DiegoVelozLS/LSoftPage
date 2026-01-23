@@ -444,7 +444,8 @@ header.scrolled .logo-dark {
     width: 30px;
     height: 30px;
     padding: 5px;
-    z-index: 1001;
+    z-index: 2000;
+    pointer-events: auto;
 }
 
 .bar {
@@ -1338,6 +1339,8 @@ footer {
         flex-direction: column;
         padding-top: 40px;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        /* FIX: Enable scrolling for cut-off content */
     }
 
     .nav-menu.active {
@@ -1348,16 +1351,27 @@ footer {
         flex-direction: column;
         gap: 30px;
         padding: 0 20px;
+        padding-bottom: 40px;
+        /* Extra padding for scrolling */
     }
 
     .nav-link {
         font-size: 1.1rem;
         padding: 10px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        justify-content: center;
+        /* FIX: Center options in mobile */
     }
 
     .nav-item {
         width: 100%;
+    }
+
+    /* FIX: Hide submenus and arrows on mobile (Simplification) */
+    .dropdown-menu,
+    .mega-menu,
+    .dropdown-arrow {
+        display: none !important;
     }
 
     /* Footer Responsive */
@@ -1479,6 +1493,24 @@ footer {
 
     .hero p {
         font-size: 1rem;
+    }
+
+    /* FIX: Force white text in mobile menu regardless of header state */
+    header.scrolled .nav-menu .nav-link {
+        color: var(--white);
+    }
+
+    /* FIX: Make dropdown visible when active in mobile */
+    .nav-item.active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        position: relative;
+        /* Ensure it takes up space */
+        min-width: 100%;
+        left: 0;
+        box-shadow: none;
+        background-color: transparent;
     }
 }
 

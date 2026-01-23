@@ -2,6 +2,13 @@
 function initializeCarousel() {
     const slides = document.querySelectorAll('.carousel-slide');
     const indicators = document.querySelectorAll('.carousel-indicator');
+    const carouselContainer = document.querySelector('.carousel-container');
+
+    // Si no hay carrusel en la página, salir
+    if (slides.length === 0 || indicators.length === 0 || !carouselContainer) {
+        return;
+    }
+
     let currentSlide = 0;
     let autoplayInterval;
 
@@ -46,8 +53,8 @@ function initializeCarousel() {
     });
 
     // Parar autoplay cuando el usuario interactúa
-    document.querySelector('.carousel-container').addEventListener('mouseenter', stopAutoplay);
-    document.querySelector('.carousel-container').addEventListener('mouseleave', startAutoplay);
+    carouselContainer.addEventListener('mouseenter', stopAutoplay);
+    carouselContainer.addEventListener('mouseleave', startAutoplay);
 
     // Inicializar
     showSlide(0);
@@ -96,27 +103,46 @@ function initializeApp() {
     const navLinks = document.querySelectorAll('.nav-link');
     const navCta = document.querySelector('.nav-cta');
 
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-        // Prevenir scroll del body cuando el menú está abierto
-        if (navMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
+    if (hamburger && navMenu) {
+        console.log('Menú hamburguesa inicializado correctamente');
+
+        // Función para toggle del menú
+        function toggleMenu(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Toggle menú activado');
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            // Prevenir scroll del body cuando el menú está abierto
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         }
-    });
+
+        // Soporte para clic
+        hamburger.addEventListener('click', toggleMenu);
+    } else {
+        console.error('Hamburger o navMenu no encontrado');
+    }
 
     // Cerrar menú al hacer clic en un enlace
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // Si el enlace tiene un submenú, no cerrar el menú principal
+            // Si el enlace tiene un submenú
             const navItem = link.closest('.nav-item');
             if (navItem && navItem.classList.contains('dropdown')) {
-                e.preventDefault();
-                // Toggle del submenú en móvil
+                // En móvil, permitir navegación directa (ya no hay submenú)
                 if (window.innerWidth <= 768) {
-                    navItem.classList.toggle('active');
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    document.body.style.overflow = '';
+                    // No prevenimos el default, dejamos que navegue
+                } else {
+                    // En desktop, comportamiento normal (si fuera click) o prevención
+                    // (aunque en desktop suele ser hover)
+                    e.preventDefault();
                 }
             } else {
                 navMenu.classList.remove('active');
@@ -127,7 +153,7 @@ function initializeApp() {
     });
 
     // Cerrar submenús al hacer clic en un enlace del dropdown
-    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    const dropdownLinks = document.querySelectorAll('.dropdown-link, .mega-link'); // Added .mega-link
     dropdownLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -250,21 +276,47 @@ function initializeApp() {
     });
 }
 
+// Variable de control para evitar inicialización múltiple
+let appInitialized = false;
+
+function safeInitializeApp() {
+    if (appInitialized) return;
+
+    // Verificar que los elementos necesarios existan
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navbar && hamburger && navMenu) {
+        appInitialized = true;
+        initializeApp();
+    } else {
+        console.log('Esperando elementos del navbar...');
+    }
+}
+
 // Esperar evento personalizado de componentes
 document.addEventListener('componentsLoaded', () => {
-    initializeApp();
+    safeInitializeApp();
 });
 
-// Fallback por seguridad (si el evento ya ocurrió antes de este script)
-// Aunque en este caso por el orden de los scripts en HTML (components.js luego script.js)
-// script.js se ejecutará después, pero el evento DOMContentLoaded dentro de components.js
-// asegura que el fetch ocurra después.
-// Dejamos un check simple por robustez.
-if (document.querySelector('#navbar-container').children.length > 0) {
-    // Si ya hay contenido, quizás el evento ya pasó (raro con esta estructura, pero preventivo)
-    console.log('Componentes ya presentes al cargar script.js');
-    initializeApp();
-}
+// Fallback: intentar inicializar después de un breve delay
+setTimeout(() => {
+    if (!appInitialized) {
+        console.log('Intentando inicializar con fallback...');
+        safeInitializeApp();
+    }
+}, 500);
+
+// Fallback adicional para DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        if (!appInitialized) {
+            console.log('Intentando inicializar con DOMContentLoaded...');
+            safeInitializeApp();
+        }
+    }, 100);
+});
 
 // --- Configuración de Partículas (Network Effect) ---
 document.addEventListener('DOMContentLoaded', () => {
