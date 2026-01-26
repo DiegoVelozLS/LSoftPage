@@ -1,6 +1,15 @@
 # Activar Rewrite Engine
 RewriteEngine On
 
+# Permitir CORS para archivos HTML (necesario para fetch de componentes)
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html|htm)$">
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type"
+    </FilesMatch>
+</IfModule>
+
 # Forzar HTTPS
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
