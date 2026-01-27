@@ -320,6 +320,16 @@ header.scrolled .logo-dark {
     }
 }
 
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Submenú desplegable */
 /* --- Mega Menu (Rediseño) --- */
 .nav-item {

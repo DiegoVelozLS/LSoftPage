@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos | Listosoft ERP</title>
+    <meta name="description"
+        content="Manuales, tutoriales y documentación de Listosoft ERP. Aprenda a usar todas las funcionalidades del sistema.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://listosoft.com/pages/recursos.html">
+    <meta property="og:title" content="Recursos | Listosoft ERP">
+    <meta property="og:description" content="Manuales, tutoriales y documentación completa de Listosoft ERP.">
+    <meta property="og:image" content="https://listosoft.com/assets/IsotipoListosoft.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../Estilos/mockup.css">
+    <link rel="stylesheet" href="../Estilos/modulos.css">
+    <link rel="icon" href="../assets/IsotipoListosoft.png">
+
+    <style>
+        /* Estilos específicos para la página de recursos */
+        .resources-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--white);
+        }
+
+        .resource-category {
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            height: 100%;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .resource-icon {
+            width: 48px;
+            height: 48px;
+            background: #eff6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .resource-icon i {
+            width: 24px;
+            height: 24px;
+        }
+
+        .resource-content {
+            flex: 1;
+        }
+
+        .resource-content h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .resource-content p {
+            margin: 0 0 1rem 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .resource-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .resource-link:hover {
+            text-decoration: underline;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .video-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .video-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            position: relative;
+        }
+
+        .video-thumbnail i {
+            width: 64px;
+            height: 64px;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .video-info p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .faq-section {
+            background: var(--bg-light);
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-question i {
+            color: var(--accent-color);
+            width: 20px;
+            height: 20px;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-left: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Contenedor para el navbar (se carga dinámicamente) -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero--secondary resources-hero" id="inicio">
+        <div class="container hero--secondary-content">
+            <h1>Centro de Recursos</h1>
+            <p>Manuales, tutoriales y documentación para aprovechar al máximo Listosoft ERP.</p>
+        </div>
+    </section>
+
+    <!-- Manuales de Usuario -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Manuales de Usuario</h2>
+                <p>Guías paso a paso para realizar las operaciones más comunes del sistema.</p>
+            </div>
+
+            <div class="modulo-grid fade-in">
+                <a href="http://104.131.161.192/Manuales/Comoingresaralsistema.html" target="_blank"
+                    class="resource-card">
+                    <div class="resource-icon">
+                        <i data-lucide="log-in"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Cómo ingresar al sistema</h3>
+                        <p>Guía para acceder al sistema y configuración inicial.</p>
+                        <span class="resource-link">Ver manual <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="http://104.131.161.192/Manuales/Comotrabajarconopcionesdeingreso.html" target="_blank"
+                    class="resource-card">
+                    <div class="resource-icon">
+                        <i data-lucide="edit"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Opciones de ingreso de datos</h3>
+                        <p>Aprenda a trabajar con las opciones de ingreso de datos del sistema.</p>
+                        <span class="resource-link">Ver manual <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="http://104.131.161.192/Manuales/ComotrabajarconopcionesdeReporte.html" target="_blank"
+                    class="resource-card">
+                    <div class="resource-icon">
+                        <i data-lucide="file-text"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Cómo trabajar con Reportes</h3>
+                        <p>Guía completa para generar y personalizar reportes del sistema.</p>
+                        <span class="resource-link">Ver manual <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="http://104.131.161.192/Manuales/ComotrabajarconReportesDinamicos.html" target="_blank"
+                    class="resource-card">
+                    <div class="resource-icon">
+                        <i data-lucide="bar-chart-2"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Reportes Dinámicos</h3>
+                        <p>Cómo crear y utilizar reportes dinámicos para análisis avanzado.</p>
+                        <span class="resource-link">Ver manual <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="http://104.131.161.192/Manuales/IngresodeSaldosInicialesdeInvent.html" target="_blank"
+                    class="resource-card">
+                    <div class="resource-icon">
+                        <i data-lucide="package"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Saldos Iniciales de Inventarios</h3>
+                        <p>Procedimiento para ingresar saldos iniciales de inventario.</p>
+                        <span class="resource-link">Ver manual <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="http://104.131.161.192/Manuales/IngresodeSaldosInicialesdeNomina.html" target="_blank"
+                    class="resource-card">
+                    <div class="resource-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Saldos Iniciales de Nómina</h3>
+                        <p>Cómo ingresar saldos iniciales de nómina y empleados.</p>
+                        <span class="resource-link">Ver manual <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;" class="fade-in">
+                <a href="http://104.131.161.192/Manuales/" target="_blank" class="btn btn-primary">
+                    Ver todos los manuales <i data-lucide="external-link"
+                        style="width: 16px; height: 16px; margin-left: 8px;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Tutoriales -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Video Tutoriales</h2>
+                <p>Aprenda visualmente con nuestros tutoriales en video.</p>
+            </div>
+
+            <div class="video-grid fade-in">
+                <a href="https://www.youtube.com/watch?v=WGGCK8-Gv4A" target="_blank" class="video-card">
+                    <div class="video-thumbnail">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/WGGCK8-Gv4A"
+                            title="Introducción a Listosoft" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen style="border-radius: 0;"></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Introducción a Listosoft</h3>
+                        <p>Conozca las funcionalidades principales de Listosoft ERP.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=p8sX6DoGYLI" target="_blank" class="video-card">
+                    <div class="video-thumbnail">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/p8sX6DoGYLI"
+                            title="Tutorial Listosoft" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen style="border-radius: 0;"></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Tutorial del Sistema</h3>
+                        <p>Aprenda a utilizar las funciones principales del ERP.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=oN_SbSG3G5E" target="_blank" class="video-card">
+                    <div class="video-thumbnail">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/oN_SbSG3G5E"
+                            title="Gestión con Listosoft" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen style="border-radius: 0;"></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Gestión Empresarial</h3>
+                        <p>Optimice la gestión de su empresa con Listosoft.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes -->
+    <section class="section faq-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Respuestas a las consultas más comunes de nuestros usuarios.</p>
+            </div>
+
+            <div class="fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i data-lucide="help-circle"></i>
+                        ¿Cómo puedo recuperar mi contraseña?
+                    </div>
+                    <div class="faq-answer">
+                        Contacte a su administrador del sistema o al soporte técnico de Listosoft para restablecer su
+                        contraseña de forma segura.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i data-lucide="help-circle"></i>
+                        ¿Puedo acceder al sistema desde mi celular?
+                    </div>
+                    <div class="faq-answer">
+                        Sí, Listosoft ERP es accesible desde cualquier dispositivo con navegador web. Para una mejor
+                        experiencia en móviles, recomendamos usar Chrome o Safari.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i data-lucide="help-circle"></i>
+                        ¿Cómo anulo una factura ya emitida?
+                    </div>
+                    <div class="faq-answer">
+                        Para anular una factura electrónica, debe emitir una Nota de Crédito por el valor total.
+                        Consulte el manual de Facturación Electrónica para más detalles.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i data-lucide="help-circle"></i>
+                        ¿Dónde puedo ver los reportes de ventas?
+                    </div>
+                    <div class="faq-answer">
+                        Los reportes de ventas se encuentran en el módulo Gestión Comercial > Reportes. Puede filtrar
+                        por fecha, cliente, vendedor y otros criterios.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i data-lucide="help-circle"></i>
+                        ¿El sistema genera respaldos automáticos?
+                    </div>
+                    <div class="faq-answer">
+                        Sí, Listosoft realiza respaldos automáticos diarios de su información. Además, puede solicitar
+                        respaldos manuales en cualquier momento a través del soporte técnico.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Soporte -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>¿Necesita ayuda adicional?</h2>
+                <p>Nuestro equipo de soporte está disponible para asistirle con cualquier consulta.</p>
+                <a href="soporte.html" class="btn btn-accent btn-large">Contactar Soporte</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor para el footer (se carga dinámicamente) -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="../components.js"></script>
+    <script src="../script.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+
+        // Escuchar carga de componentes para reinicializar si hace falta
+        document.addEventListener('componentsLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>

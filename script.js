@@ -229,28 +229,84 @@ function initializeApp() {
         videoObserver.observe(videoContainer);
     }
 
-    // 4. Manejo del Formulario de Contacto (Simulado)
+    // 4. Manejo del Formulario de Contacto con EmailJS
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Simulación de envío
-            const submitBtn = contactForm.querySelector('button');
-            const originalText = submitBtn.innerText;
+            // Obtener valores del formulario
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-            submitBtn.innerText = 'Enviando...';
+            // Validación básica
+            if (!name || !company || !email) {
+                alert('Por favor complete todos los campos obligatorios.');
+                return;
+            }
+
+            // Validación de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor ingrese un correo electrónico válido.');
+                return;
+            }
+
+            // Cambiar estado del botón
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i data-lucide="loader-2" style="width: 20px; height: 20px; animation: spin 1s linear infinite;"></i> Enviando...';
             submitBtn.disabled = true;
-            submitBtn.style.backgroundColor = '#94a3b8'; // Gris visual
+            submitBtn.style.backgroundColor = '#94a3b8';
 
-            setTimeout(() => {
-                alert('¡Gracias por su interés!\n\nSus datos han sido recibidos. Un asesor de Listosoft se comunicará con usted en breve.');
-                contactForm.reset();
-                submitBtn.innerText = originalText;
-                submitBtn.disabled = false;
-                submitBtn.style.backgroundColor = ''; // Volver al color original
-            }, 1500);
+            // Parámetros para EmailJS
+            const templateParams = {
+                from_name: name,
+                from_company: company,
+                from_email: email,
+                message: message || 'Sin mensaje adicional',
+                to_email: 'contacto@listosoft.com' // Email donde recibirás los mensajes
+            };
+
+            // Enviar email usando EmailJS
+            emailjs.send('service_vkr4srr', 'template_xp9l3d2', templateParams)
+                .then((response) => {
+                    console.log('Email enviado exitosamente!', response.status, response.text);
+
+                    // Mensaje de éxito
+                    alert('¡Gracias por su interés!\n\nSu mensaje ha sido enviado exitosamente. Un asesor de Listosoft se comunicará con usted en breve.');
+
+                    // Limpiar formulario
+                    contactForm.reset();
+
+                    // Restaurar botón
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.backgroundColor = '';
+
+                    // Reinicializar iconos de Lucide
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                }, (error) => {
+                    console.error('Error al enviar email:', error);
+
+                    // Mensaje de error
+                    alert('Lo sentimos, hubo un error al enviar su mensaje.\n\nPor favor intente nuevamente o contáctenos directamente por WhatsApp o teléfono.');
+
+                    // Restaurar botón
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.backgroundColor = '';
+
+                    // Reinicializar iconos de Lucide
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                });
         });
     }
 
