@@ -10,6 +10,11 @@
     overflow: hidden;
 }
 
+/* Primera sección necesita espacio adicional para el navbar fijo */
+.modulo-section:first-of-type {
+    padding-top: 180px;
+}
+
 .modulo-section--alt {
     background-color: var(--bg-light);
 }
