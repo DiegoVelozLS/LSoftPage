@@ -52,19 +52,19 @@ function setupDynamicLinks() {
     if (navModulosVerTodos) navModulosVerTodos.href = `${basePath}pages/modulos.html`;
 
     // Enlaces del mega menú
-    const navGestionComercial = document.querySelector('.nav-gestion-comercial');
-    const navCompras = document.querySelector('.nav-compras');
-    const navInventarios = document.querySelector('.nav-inventarios');
-    const navFinanzas = document.querySelector('.nav-finanzas');
-    const navNomina = document.querySelector('.nav-nomina');
-    const navAnalisis = document.querySelector('.nav-analisis');
+    const navCicloComercial = document.querySelector('.nav-ciclo-comercial');
+    const navGestionFinanciera = document.querySelector('.nav-gestion-financiera');
+    const navContabilidadLegal = document.querySelector('.nav-contabilidad-legal');
+    const navProduccionOperaciones = document.querySelector('.nav-produccion-operaciones');
+    const navNominaActivos = document.querySelector('.nav-nomina-activos');
+    const navInteligenciaNegocios = document.querySelector('.nav-inteligencia-negocios');
 
-    if (navGestionComercial) navGestionComercial.href = `${basePath}pages/modulos.html#gestion-comercial`;
-    if (navCompras) navCompras.href = `${basePath}pages/modulos.html#compras`;
-    if (navInventarios) navInventarios.href = `${basePath}pages/modulos.html#inventarios`;
-    if (navFinanzas) navFinanzas.href = `${basePath}pages/modulos.html#finanzas`;
-    if (navNomina) navNomina.href = `${basePath}pages/modulos.html#nomina`;
-    if (navAnalisis) navAnalisis.href = `${basePath}pages/modulos.html#analisis`;
+    if (navCicloComercial) navCicloComercial.href = `${basePath}pages/modulos.html#ciclo-comercial`;
+    if (navGestionFinanciera) navGestionFinanciera.href = `${basePath}pages/modulos.html#gestion-financiera`;
+    if (navContabilidadLegal) navContabilidadLegal.href = `${basePath}pages/modulos.html#contabilidad-legal`;
+    if (navProduccionOperaciones) navProduccionOperaciones.href = `${basePath}pages/modulos.html#produccion-operaciones`;
+    if (navNominaActivos) navNominaActivos.href = `${basePath}pages/modulos.html#nomina-activos`;
+    if (navInteligenciaNegocios) navInteligenciaNegocios.href = `${basePath}pages/modulos.html#inteligencia-negocios`;
 
     // Enlaces del menú principal
     const navClientesLink = document.querySelector('.nav-clientes-link');
@@ -87,17 +87,19 @@ function setupDynamicLinks() {
     if (footerLogoImg) footerLogoImg.src = `${basePath}assets/Logo-Listosoft.png`;
 
     // Enlaces del footer
-    const footerFinanzasLink = document.querySelector('.footer-finanzas-link');
-    const footerGestionComercialLink = document.querySelector('.footer-gestion-comercial-link');
-    const footerInventariosLink = document.querySelector('.footer-inventarios-link');
-    const footerNominaLink = document.querySelector('.footer-nomina-link');
+    const footerCicloComercialLink = document.querySelector('.footer-ciclo-comercial-link');
+    const footerGestionFinancieraLink = document.querySelector('.footer-gestion-financiera-link');
+    const footerContabilidadLegalLink = document.querySelector('.footer-contabilidad-legal-link');
+    const footerInteligenciaNegociosLink = document.querySelector('.footer-inteligencia-negocios-link');
     const footerSobreNosotrosLink = document.querySelector('.footer-sobre-nosotros-link');
     const footerPoliticaLink = document.querySelector('.footer-politica-link');
 
-    if (footerFinanzasLink) footerFinanzasLink.href = `${basePath}pages/modulos.html#finanzas`;
-    if (footerGestionComercialLink) footerGestionComercialLink.href = `${basePath}pages/modulos.html#gestion-comercial`;
-    if (footerInventariosLink) footerInventariosLink.href = `${basePath}pages/modulos.html#inventarios`;
-    if (footerNominaLink) footerNominaLink.href = `${basePath}pages/modulos.html#nomina`;
+    if (footerCicloComercialLink) footerCicloComercialLink.href = `${basePath}pages/modulos.html#ciclo-comercial`;
+    if (footerGestionFinancieraLink) footerGestionFinancieraLink.href = `${basePath}pages/modulos.html#gestion-financiera`;
+    if (footerContabilidadLegalLink) footerContabilidadLegalLink.href = `${basePath}pages/modulos.html#contabilidad-legal`;
+    if (footerInteligenciaNegociosLink) footerInteligenciaNegociosLink.href = `${basePath}pages/modulos.html#inteligencia-negocios`;
+    if (footerSobreNosotrosLink) footerSobreNosotrosLink.href = `${basePath}pages/Sobre-nosotros.html`;
+    if (footerPoliticaLink) footerPoliticaLink.href = `${basePath}pages/Politica-privacidad.html`;
     if (footerSobreNosotrosLink) footerSobreNosotrosLink.href = `${basePath}pages/Sobre-nosotros.html`;
     if (footerPoliticaLink) footerPoliticaLink.href = `${basePath}pages/Politica-privacidad.html`;
 }
