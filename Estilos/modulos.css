@@ -1,6 +1,165 @@
 /* ============================================
    PÁGINA DE MÓDULOS - ESTILOS EXCLUSIVOS
-   Secciones alternadas con iconos grandes
+   Diseño horizontal con módulos y comprobantes
+============================================ */
+
+/* --- Secciones de Módulos Horizontales --- */
+.modulo-section-horizontal {
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Primera sección necesita espacio adicional para el navbar fijo */
+.modulo-section-horizontal:first-of-type {
+    padding-top: 150px;
+}
+
+.modulo-section-horizontal.modulo-section--alt {
+    background-color: var(--bg-light);
+}
+
+/* --- Layout Horizontal --- */
+.modulo-horizontal-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 30px 0;
+}
+
+.modulo-title-side {
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.modulo-icon-circle {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15);
+    transition: var(--transition);
+}
+
+.modulo-icon-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.25);
+}
+
+.modulo-icon-circle i {
+    width: 40px;
+    height: 40px;
+    stroke-width: 2.5;
+    color: var(--accent-color);
+}
+
+.modulo-title-side h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.modulo-comprobantes-side {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px 25px;
+    align-items: flex-start;
+}
+
+.comprobante-tag {
+    background: transparent;
+    padding: 10px 0;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    transition: var(--transition);
+    position: relative;
+    padding-left: 24px;
+    line-height: 1.6;
+}
+
+.comprobante-tag::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.comprobante-tag:hover {
+    color: var(--accent-color);
+    padding-left: 28px;
+}
+
+.comprobante-tag:hover::before {
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-hover);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .modulo-horizontal-layout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .modulo-title-side {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .modulo-comprobantes-side {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .modulo-section-horizontal {
+        padding: 40px 0;
+    }
+
+    .modulo-section-horizontal:first-of-type {
+        padding-top: 120px;
+    }
+
+    .modulo-icon-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .modulo-icon-circle i {
+        width: 32px;
+        height: 32px;
+    }
+
+    .modulo-title-side h2 {
+        font-size: 1.5rem;
+    }
+
+    .comprobante-tag {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+}
+
+/* ============================================
+   ESTILOS ANTIGUOS (Mantenidos para compatibilidad)
 ============================================ */
 
 /* --- Secciones de Módulos --- */

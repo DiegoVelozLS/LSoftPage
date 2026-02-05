@@ -87,19 +87,17 @@ function setupDynamicLinks() {
     if (footerLogoImg) footerLogoImg.src = `${basePath}assets/Logo-Listosoft.png`;
 
     // Enlaces del footer
-    const footerCicloComercialLink = document.querySelector('.footer-ciclo-comercial-link');
-    const footerGestionFinancieraLink = document.querySelector('.footer-gestion-financiera-link');
-    const footerContabilidadLegalLink = document.querySelector('.footer-contabilidad-legal-link');
-    const footerInteligenciaNegociosLink = document.querySelector('.footer-inteligencia-negocios-link');
+    const footerModulosLink = document.querySelector('.footer-modulos-link');
+    const footerClientesLink = document.querySelector('.footer-clientes-link');
+    const footerRecursosLink = document.querySelector('.footer-recursos-link');
+    const footerSoporteLink = document.querySelector('.footer-soporte-link');
     const footerSobreNosotrosLink = document.querySelector('.footer-sobre-nosotros-link');
     const footerPoliticaLink = document.querySelector('.footer-politica-link');
 
-    if (footerCicloComercialLink) footerCicloComercialLink.href = `${basePath}pages/modulos.html#ciclo-comercial`;
-    if (footerGestionFinancieraLink) footerGestionFinancieraLink.href = `${basePath}pages/modulos.html#gestion-financiera`;
-    if (footerContabilidadLegalLink) footerContabilidadLegalLink.href = `${basePath}pages/modulos.html#contabilidad-legal`;
-    if (footerInteligenciaNegociosLink) footerInteligenciaNegociosLink.href = `${basePath}pages/modulos.html#inteligencia-negocios`;
-    if (footerSobreNosotrosLink) footerSobreNosotrosLink.href = `${basePath}pages/Sobre-nosotros.html`;
-    if (footerPoliticaLink) footerPoliticaLink.href = `${basePath}pages/Politica-privacidad.html`;
+    if (footerModulosLink) footerModulosLink.href = `${basePath}pages/modulos.html`;
+    if (footerClientesLink) footerClientesLink.href = `${basePath}index.html#Clientes`;
+    if (footerRecursosLink) footerRecursosLink.href = `${basePath}pages/recursos.html`;
+    if (footerSoporteLink) footerSoporteLink.href = `${basePath}pages/soporte.html`;
     if (footerSobreNosotrosLink) footerSobreNosotrosLink.href = `${basePath}pages/Sobre-nosotros.html`;
     if (footerPoliticaLink) footerPoliticaLink.href = `${basePath}pages/Politica-privacidad.html`;
 }
