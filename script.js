@@ -64,34 +64,44 @@ function initializeCarousel() {
 function initializeApp() {
     // 1. Manejo del Header Sticky
     const navbar = document.getElementById('navbar');
-    const heroSection = document.getElementById('inicio');
+    const heroSection = document.querySelector('.hero, .hero--legal');
 
-    if (!navbar || !heroSection) {
+    if (!navbar) {
         // Si los componentes aún no están cargados, esperar un poco más
         setTimeout(initializeApp, 100);
         return;
     }
 
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    if (heroSection) {
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
 
-        // Si estamos dentro de la sección hero, hacer el navbar transparente
-        if (scrollY < heroBottom - 100) {
+            // Si estamos dentro de la sección hero, hacer el navbar transparente
+            if (scrollY < heroBottom - 100) {
+                navbar.classList.add('over-hero');
+                navbar.classList.remove('scrolled');
+            } else {
+                // Si salimos del hero, aplicar el estilo scrolled con color azul
+                navbar.classList.remove('over-hero');
+                navbar.classList.add('scrolled');
+            }
+        });
+
+        // Verificar el estado inicial al cargar la página
+        const initialScroll = window.scrollY;
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        if (initialScroll < heroBottom - 100) {
             navbar.classList.add('over-hero');
             navbar.classList.remove('scrolled');
         } else {
-            // Si salimos del hero, aplicar el estilo scrolled con color azul
             navbar.classList.remove('over-hero');
             navbar.classList.add('scrolled');
         }
-    });
-
-    // Verificar el estado inicial al cargar la página
-    const initialScroll = window.scrollY;
-    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-    if (initialScroll < heroBottom - 100) {
-        navbar.classList.add('over-hero');
+    } else {
+        // En páginas sin hero, usar siempre estilo sólido
+        navbar.classList.remove('over-hero');
+        navbar.classList.add('scrolled');
     }
 
     // 2. Carrusel de Imágenes
