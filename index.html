@@ -25,12 +25,15 @@
         content="Optimiza procesos contables, administrativos y financieros con Listosoft ERP.">
     <meta property="twitter:image" content="https://listosoft.com/assets/IsotipoListosoft.png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="assets/IsotipoListosoft.png">
 </head>
 
-<body>
+<body class="home-dark">
     <!-- Contenedor para el navbar (se carga dinámicamente) -->
     <div id="navbar-container"></div>
     <section class="hero" id="inicio">
@@ -38,13 +41,115 @@
         <div id="tsparticles"></div>
 
         <div class="container hero-container">
-            <div class="hero-content fade-in">
-                <h1>Solución ERP para empresas ecuatorianas</h1>
-                <p>Gestiona contabilidad, finanzas y administración en una sola plataforma que crece con tu negocio.</p>
+            <div class="hero-copy fade-in">
+                <h1>Controle finanzas, operaciones y contabilidad con una sola plataforma confiable.</h1>
+                <p>Listosoft centraliza los procesos clave de su empresa para que tome decisiones con información clara, operación estable y soporte especializado.</p>
                 <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-accent">Solicitar información</a>
-                    <a href="pages/modulos.html" class="btn btn-outline">Conocer módulos</a>
+                    <a href="#contacto" class="btn btn-accent">Solicitar demo</a>
+                    <a href="#modulos" class="btn btn-outline">Explorar módulos</a>
                 </div>
+                <div class="hero-metrics">
+                    <div class="hero-metric-card">
+                        <strong>+23 años</strong>
+                        <span>acompañando empresas ecuatorianas</span>
+                    </div>
+                    <div class="hero-metric-card">
+                        <strong>ERP modular</strong>
+                        <span>contabilidad, inventario, ventas y más</span>
+                    </div>
+                    <div class="hero-metric-card">
+                        <strong>Soporte experto</strong>
+                        <span>asesoría funcional y técnica continua</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual fade-in">
+                <div class="dashboard-shell">
+                    <div class="dashboard-topbar">
+                        <div class="dashboard-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="dashboard-title">Panel ejecutivo Listosoft</div>
+                    </div>
+                    <div class="dashboard-body">
+                        <aside class="dashboard-sidebar">
+                            <span>Resumen</span>
+                            <span>Finanzas</span>
+                            <span>Ventas</span>
+                            <span>Inventario</span>
+                            <span>Reportes</span>
+                        </aside>
+                        <div class="dashboard-content">
+                            <div class="dashboard-cards">
+                                <div class="mini-stat">
+                                    <span>Liquidez</span>
+                                    <strong>98.4%</strong>
+                                </div>
+                                <div class="mini-stat">
+                                    <span>Facturación</span>
+                                    <strong>$1.2M</strong>
+                                </div>
+                                <div class="mini-stat">
+                                    <span>Inventario</span>
+                                    <strong>En control</strong>
+                                </div>
+                            </div>
+                            <div class="chart-panel">
+                                <div class="chart-bars">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="table-panel">
+                                <div class="table-row"></div>
+                                <div class="table-row"></div>
+                                <div class="table-row short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-problems" id="beneficios">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Una operación más ordenada, visible y rentable.</h2>
+                <p>Listosoft resuelve los cuellos de botella que frenan el crecimiento de empresas que necesitan control real sobre su información y su gestión.</p>
+            </div>
+
+            <div class="problem-grid">
+                <article class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <h3>Más estabilidad operativa</h3>
+                    <p>Arquitectura sólida para manejar procesos críticos sin depender de hojas dispersas o sistemas aislados.</p>
+                </article>
+
+                <article class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <i data-lucide="scan-search"></i>
+                    </div>
+                    <h3>Visibilidad para decidir</h3>
+                    <p>Consulte información financiera, administrativa y gerencial en un entorno unificado y fácil de interpretar.</p>
+                </article>
+
+                <article class="problem-card fade-in">
+                    <div class="problem-icon">
+                        <i data-lucide="layers-3"></i>
+                    </div>
+                    <h3>Crecimiento por módulos</h3>
+                    <p>Implemente las áreas que necesita hoy y escale el sistema conforme evolucionen sus procesos y equipos.</p>
+                </article>
             </div>
         </div>
     </section>
@@ -54,6 +159,31 @@
             <div class="section-header fade-in">
                 <h2>Módulos que se adaptan a tu empresa</h2>
                 <p>Un ecosistema modular diseñado para cubrir cada aspecto crítico de su organización.</p>
+            </div>
+
+            <div class="product-showcase fade-in">
+                <div class="product-copy">
+                    <h3>Un ERP diseñado para integrar áreas que normalmente trabajan desconectadas.</h3>
+                    <p>Desde contabilidad y tributación hasta inventario, compras y reportes gerenciales, cada módulo se conecta con el resto para reducir errores y acelerar la operación.</p>
+                    <ul class="product-bullets">
+                        <li>Operación centralizada en una sola plataforma.</li>
+                        <li>Información consistente entre áreas administrativas y financieras.</li>
+                        <li>Reportes listos para seguimiento y decisiones gerenciales.</li>
+                    </ul>
+                </div>
+                <div class="product-preview">
+                    <div class="preview-window">
+                        <div class="preview-header"></div>
+                        <div class="preview-body">
+                            <div class="preview-chart"></div>
+                            <div class="preview-widgets">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="cards-grid">
@@ -120,82 +250,41 @@
         </div>
     </section>
 
-    <section id="beneficios" class="section">
+    <section id="Clientes" class="section bg-light text-dark section-social-proof">
         <div class="container">
-            <div class="benefits-layout">
-                <div class="benefits-text fade-in">
-                    <h2>¿Por qué elegir Listosoft?</h2>
-                    <p>Más que un software, somos su socio tecnológico estratégico.</p>
-                    <ul class="benefits-list">
-                        <li>
-                            <strong>Estabilidad Garantizada:</strong> Arquitectura robusta diseñada para manejar altos
-                            volúmenes de transacciones sin interrupciones.
-                        </li>
-                        <li>
-                            <strong>Seguridad de Datos:</strong> Encriptación de nivel bancario y copias de seguridad
-                            automáticas para proteger su información.
-                        </li>
-                        <li>
-                            <strong>Soporte Especializado:</strong> Equipo de consultores expertos disponibles para
-                            resolver dudas técnicas y contables.
-                        </li>
-                        <li>
-                            <strong>Escalabilidad:</strong> El sistema crece al ritmo de su empresa, permitiendo agregar
-                            módulos según lo necesite.
-                        </li>
-                    </ul>
+            <div class="section-header fade-in">
+                <h2>Empresas que confían en Listosoft</h2>
+                <p>Únase a una red creciente de organizaciones que han transformado su gestión empresarial con nuestro ERP.
+                </p>
+            </div>
+
+            <div class="clients-intro fade-in">
+                <div class="clients-copy">
+                    <h3>Organizaciones de distintos sectores ya operan con Listosoft.</h3>
+                    <p>La confianza se construye con continuidad, orden y resultados sostenibles. Estas marcas representan parte de las empresas que han trabajado con nuestra solución ERP.</p>
                 </div>
-                <div class="benefits-visual fade-in">
-                    <div class="abstract-shape">
-                        <div class="shape-inner">
-                            <span class="stat-number">+23</span>
-                            <span class="stat-label">Años de experiencia</span>
-                        </div>
-                    </div>
+                <div class="clients-summary">
+                    <strong>Empresas reales</strong>
+                    <span>Distribución, industria, comercialización y servicios.</span>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="Clientes" class="section bg-light text-dark">
-        <div class="section-header fade-in">
-            <h2>Empresas que confían en Listosoft</h2>
-            <p>Únase a una red creciente de organizaciones que han transformado su gestión empresarial con nuestro ERP.
-            </p>
-        </div>
-        <div class="carouselClientes">
-            <div class="carouselClientes-track">
-                <img src="LogosClientes/TechMallLogo.jpg" alt="">
-                <img src="LogosClientes/YupiLogo.jpg" alt="">
-                <img src="LogosClientes/AgiliderLogo.png" alt="">
-                <img src="LogosClientes/LaJoyaLogo.png" alt="">
-                <img src="LogosClientes/CrimasaLogo.png" alt="">
-                <img src="LogosClientes/FloresYJardinesLogo.jpg" alt="">
-                <img src="LogosClientes/JokasaLogo.png" alt="">
-                <img src="LogosClientes/SeguragroLogo.png" alt="">
-                <img src="LogosClientes/TMALogo.jpg" alt="">
-                <img src="LogosClientes/TecdiarLogo.png" alt="">
-                <img src="LogosClientes/LatinaLogo.jpg" alt="">
-                <img src="LogosClientes/SumelecLogo.png" alt="">
-                <img src="LogosClientes/QuimiserLogo.png" alt="">
-
-
-
-                <img src="LogosClientes/TechMallLogo.jpg" alt="">
-                <img src="LogosClientes/YupiLogo.jpg" alt="">
-                <img src="LogosClientes/AgiliderLogo.png" alt="">
-                <img src="LogosClientes/LaJoyaLogo.png" alt="">
-                <img src="LogosClientes/CrimasaLogo.png" alt="">
-                <img src="LogosClientes/FloresYJardinesLogo.jpg" alt="">
-                <img src="LogosClientes/JokasaLogo.png" alt="">
-                <img src="LogosClientes/SeguragroLogo.png" alt="">
-                <img src="LogosClientes/TMALogo.jpg" alt="">
-                <img src="LogosClientes/TecdiarLogo.png" alt="">
-                <img src="LogosClientes/LatinaLogo.jpg" alt="">
-                <img src="LogosClientes/SumelecLogo.png" alt="">
-                <img src="LogosClientes/QuimiserLogo.png" alt="">
+            <div class="clients-grid fade-in">
+                <article class="client-logo-card"><img src="LogosClientes/TechMallLogo.jpg" alt="TechMall"></article>
+                <article class="client-logo-card"><img src="LogosClientes/YupiLogo.jpg" alt="Yupi"></article>
+                <article class="client-logo-card"><img src="LogosClientes/AgiliderLogo.png" alt="Agilider"></article>
+                <article class="client-logo-card"><img src="LogosClientes/LaJoyaLogo.png" alt="La Joya"></article>
+                <article class="client-logo-card"><img src="LogosClientes/CrimasaLogo.png" alt="Crimasa"></article>
+                <article class="client-logo-card"><img src="LogosClientes/FloresYJardinesLogo.jpg" alt="Flores y Jardines"></article>
+                <article class="client-logo-card"><img src="LogosClientes/JokasaLogo.png" alt="Jokasa"></article>
+                <article class="client-logo-card"><img src="LogosClientes/SeguragroLogo.png" alt="Seguragro"></article>
+                <article class="client-logo-card"><img src="LogosClientes/TMALogo.jpg" alt="TMA"></article>
+                <article class="client-logo-card"><img src="LogosClientes/TecdiarLogo.png" alt="Tecdiar"></article>
+                <article class="client-logo-card"><img src="LogosClientes/LatinaLogo.jpg" alt="Latina"></article>
+                <article class="client-logo-card"><img src="LogosClientes/SumelecLogo.png" alt="Sumelec"></article>
+                <article class="client-logo-card"><img src="LogosClientes/QuimiserLogo.png" alt="Quimiser"></article>
             </div>
-        </div>
+                </div>
     </section>
 
     <section id="contacto" class="section">
@@ -204,6 +293,11 @@
                 <h2>Hablemos de su empresa</h2>
                 <p>Nuestro equipo de especialistas está listo para entender sus necesidades y proporerle la solución de
                     gestión que mejor se adapte a su estructura.</p>
+
+                <div class="cta-panel">
+                    <strong>Agende una demo y vea cómo Listosoft puede adaptarse a su operación.</strong>
+                    <span>Conversemos sobre sus procesos, módulos prioritarios y necesidades de control.</span>
+                </div>
 
                 <div class="info-item">
                     <a href="tel:+593994794348" class="contact-icon">
@@ -255,7 +349,7 @@
                         <label for="message">Mensaje</label>
                         <textarea id="message" rows="4" placeholder="¿En qué módulos está interesado?"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Enviar Solicitud</button>
+                    <button type="submit" class="btn btn-primary btn-block">Solicitar demo</button>
                 </form>
             </div>
         </div>
