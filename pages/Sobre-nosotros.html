@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros - Listosoft</title>
     <meta name="description" content="Conoce más sobre LISTOSOFT, nuestra misión, visión y valores">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles.css?v=20260907">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="../assets/IsotipoListosoft.png">
 </head>
@@ -80,6 +80,37 @@
                 <div class="about-team-copy fade-in"><span class="about-label">04 / EQUIPO</span><h2>Experiencia técnica con vocación de servicio.</h2><p>Contamos con desarrolladores, personal de soporte y especialistas en el área contable y tributaria, preparados para entender la realidad de cada empresa.</p><p>Nuestro equipo combina experiencia, conocimiento técnico y vocación de servicio para garantizar que nuestros clientes cuenten con herramientas confiables y un respaldo permanente.</p></div>
             </div>
         </section>
+
+        <section class="about-clients section bg-light">
+            <div class="container">
+                <div class="about-section-heading about-section-heading--wide fade-in">
+                    <span class="about-label">05 / CLIENTES</span>
+                    <h2>Empresas que confían en nosotros.</h2>
+                </div>
+                <div class="about-clients-grid fade-in">
+                    <div class="about-client-card"><img src="../LogosClientes/Logo13.jpg" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo16.png" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo11.jpg" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo12.jpg" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo1.png" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo2.png" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo3.jpg" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo4.png" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo5.png" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo6.jpg" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo7.png" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo8.png" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo9.png" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo10.png" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/logo14.png" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo15.jpg" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo17.jpg" alt="Cliente"></div>
+                    <div class="about-client-card"><img src="../LogosClientes/Logo18.jpg" alt="Cliente"></div>
+                </div>
+            </div>
+        </section>
+
+        
     </main>
 
         <style>
@@ -353,6 +384,48 @@
                 text-transform: uppercase;
             }
 
+            /* ── Sección Clientes ── */
+            .about-clients {
+                background: #fff;
+            }
+
+            .about-clients-grid {
+                display: grid;
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .about-client-card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 28px 20px;
+                background: #fff;
+                border: 1px solid var(--about-line);
+                border-radius: 4px;
+                transition: box-shadow 0.3s ease, border-color 0.3s ease;
+                cursor: default;
+            }
+
+            .about-client-card:hover {
+                box-shadow: 0 6px 24px rgba(59, 91, 153, 0.12);
+                border-color: var(--about-blue);
+            }
+
+            .about-client-card img {
+                max-width: 130px;
+                max-height: 68px;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                filter: grayscale(100%) opacity(0.55);
+                transition: filter 0.4s ease;
+            }
+
+            .about-client-card:hover img {
+                filter: grayscale(0%) opacity(1);
+            }
+
             @media (max-width: 768px) {
                 .about-hero {
                     min-height: auto;
@@ -416,6 +489,20 @@
                 .about-team-number {
                     font-size: 8rem;
                 }
+
+                .about-clients-grid {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                    gap: 12px;
+                }
+
+                .about-client-card {
+                    padding: 20px 14px;
+                }
+
+                .about-client-card img {
+                    max-width: 100px;
+                    max-height: 52px;
+                }
             }
         </style>
 
@@ -423,7 +510,7 @@
     <div id="footer-container"></div>
 
     <!-- Scripts: primero cargar componentes, luego la funcionalidad -->
-    <script src="../components.js"></script>
-    <script src="../script.js"></script>
+    <script src="../components.js?v=20260907"></script>
+    <script src="../script.js?v=20260907"></script>
 </body>
 </html>

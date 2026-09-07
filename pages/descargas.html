@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargas | Listosoft</title>
+    <meta name="description"
+        content="Descargue la última versión de Listosoft ERP y consulte el historial de actualizaciones. Disponible para clientes con licencia activa.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://listosoft.com/pages/descargas.html">
+    <meta property="og:title" content="Descargas | Listosoft">
+    <meta property="og:description"
+        content="Versiones e instaladores de Listosoft para clientes con licencia activa.">
+    <meta property="og:image" content="https://listosoft.com/assets/IsotipoListosoft.png">
+
+    <link rel="stylesheet" href="../styles.css?v=20260907">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../assets/IsotipoListosoft.png">
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <section class="downloads-hero">
+        <div class="container">
+            <span class="section-label">RECURSOS / DESCARGAS</span>
+            <h1>Actualizaciones de Listosoft</h1>
+            <p>Instaladores y versiones para clientes con licencia activa. Si necesita una actualización, solicítela a soporte y se la entregamos con el respaldo correspondiente.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <!-- <div class="downloads-tabs" role="tablist" aria-label="Productos">
+                <button type="button" class="downloads-tab is-active" data-tab="erp" role="tab" aria-selected="true">Listosoft ERP</button>
+                <button type="button" class="downloads-tab" data-tab="asistencias" role="tab" aria-selected="false">Control de Asistencias</button>
+                <button type="button" class="downloads-tab" data-tab="web" role="tab" aria-selected="false">Módulo web</button>
+            </div> -->
+
+            <div class="downloads-panel is-active" id="panel-erp" role="tabpanel">
+                <article class="downloads-latest">
+                    <div>
+                        <span class="section-label">Versión vigente</span>
+                        <h2>Listosoft ERP</h2>
+                        <p>La versión estable del sistema para Windows. Incluye los módulos contratados por su empresa y las actualizaciones normativas más recientes.</p>
+                        <div class="downloads-meta">
+                            <span>Windows</span>
+                            <span>Clientes con licencia</span>
+                            <span>Soporte incluido</span>
+                        </div>
+                        <a href="../index.html#contacto" class="btn btn-primary">Solicitar última versión</a>
+                    </div>
+                    <div>
+                        <p class="downloads-note">No publicamos el instalador en abierto. Así protegemos las copias de nuestros clientes y nos aseguramos de que cada actualización quede registrada.</p>
+                    </div>
+                </article>
+
+                <table class="downloads-history">
+                    <thead>
+                        <tr>
+                            <th>Canal</th>
+                            <th>Disponibilidad</th>
+                            <th>Cómo obtenerla</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Versión estable</td>
+                            <td>Recomendada para producción</td>
+                            <td>Solicitud a soporte</td>
+                        </tr>
+                        <tr>
+                            <td>Versiones anteriores</td>
+                            <td>Bajo petición</td>
+                            <td>Si su entorno requiere una revisión previa</td>
+                        </tr>
+                        <tr>
+                            <td>Notas de versión</td>
+                            <td>Con cada entrega</td>
+                            <td>Se envían junto al instalador</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="downloads-panel" id="panel-asistencias" role="tabpanel" hidden>
+                <article class="downloads-latest">
+                    <div>
+                        <span class="section-label">Beta</span>
+                        <h2>Control de Asistencias</h2>
+                        <p>Producto en beta. Aún no hay un historial público de instaladores. Si ya forma parte del programa de pruebas, el equipo le indica cómo actualizar.</p>
+                        <div class="downloads-meta">
+                            <span>Beta cerrada</span>
+                            <span>Actualización asistida</span>
+                        </div>
+                        <a href="https://listosoft.com/landing-page-asistencias/" target="_blank" rel="noopener" class="btn btn-primary">Conocer el producto</a>
+                    </div>
+                    <div>
+                        <p class="downloads-note">Cuando el producto salga de beta, las versiones aparecerán en esta misma página junto al ERP.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="downloads-panel" id="panel-web" role="tabpanel" hidden>
+                <article class="downloads-latest">
+                    <div>
+                        <span class="section-label">Próximamente</span>
+                        <h2>Módulo web</h2>
+                        <p>Estamos preparando el acceso al ERP desde el navegador. No hay descargas disponibles todavía.</p>
+                        <div class="downloads-meta">
+                            <span>En desarrollo</span>
+                            <span>Sin instalador</span>
+                        </div>
+                        <a href="../index.html#contacto" class="btn btn-primary">Avisarme cuando esté listo</a>
+                    </div>
+                    <div>
+                        <p class="downloads-note">Mientras tanto, Listosoft ERP sigue siendo la plataforma principal para la operación diaria.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="../components.js?v=20260907"></script>
+    <script src="../script.js?v=20260907"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.downloads-tab');
+            const panels = document.querySelectorAll('.downloads-panel');
+
+            tabs.forEach((tab) => {
+                tab.addEventListener('click', () => {
+                    const target = tab.dataset.tab;
+
+                    tabs.forEach((item) => {
+                        item.classList.toggle('is-active', item === tab);
+                        item.setAttribute('aria-selected', item === tab ? 'true' : 'false');
+                    });
+
+                    panels.forEach((panel) => {
+                        const isActive = panel.id === `panel-${target}`;
+                        panel.classList.toggle('is-active', isActive);
+                        panel.hidden = !isActive;
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

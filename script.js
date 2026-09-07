@@ -149,19 +149,19 @@ function initializeApp() {
     // Cerrar menú al hacer clic en un enlace
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // Si el enlace tiene un submenú
             const navItem = link.closest('.nav-item');
             if (navItem && navItem.classList.contains('dropdown')) {
-                // En móvil, permitir navegación directa (ya no hay submenú)
-                if (window.innerWidth <= 768) {
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
-                    document.body.style.overflow = '';
-                    // No prevenimos el default, dejamos que navegue
-                } else {
-                    // En desktop, comportamiento normal (si fuera click) o prevención
-                    // (aunque en desktop suele ser hover)
-                    e.preventDefault();
+                e.preventDefault();
+                if (window.innerWidth <= 900) {
+                    const isOpen = navItem.classList.toggle('active');
+                    link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    document.querySelectorAll('.nav-item.dropdown').forEach((item) => {
+                        if (item !== navItem) {
+                            item.classList.remove('active');
+                            const toggle = item.querySelector('.nav-dropdown-toggle');
+                            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
                 }
             } else {
                 navMenu.classList.remove('active');
@@ -172,7 +172,7 @@ function initializeApp() {
     });
 
     // Cerrar submenús al hacer clic en un enlace del dropdown
-    const dropdownLinks = document.querySelectorAll('.dropdown-link, .mega-link'); // Added .mega-link
+    const dropdownLinks = document.querySelectorAll('.dropdown-link, .mega-link, .nav-flyout-item');
     dropdownLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
