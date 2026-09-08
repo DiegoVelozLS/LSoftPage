@@ -295,8 +295,7 @@ header.scrolled .logo-dark {
     font-weight: 700;
     padding: 12px 24px;
     font-size: 0.95rem;
-    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
-    animation: subtle-pulse 3s ease-in-out infinite;
+    box-shadow: none;
 }
 
 .nav-cta::after {
@@ -305,19 +304,7 @@ header.scrolled .logo-dark {
 }
 
 .nav-cta:hover {
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
-}
-
-@keyframes subtle-pulse {
-
-    0%,
-    100% {
-        box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
-    }
-
-    50% {
-        box-shadow: 0 4px 18px rgba(59, 130, 246, 0.4);
-    }
+    box-shadow: none;
 }
 
 @keyframes spin {
@@ -726,6 +713,7 @@ header.scrolled .logo-dark {
     margin-right: auto;
 }
 
+.section-header h1,
 .section-header h2 {
     font-size: 2.5rem;
     color: var(--primary-color);
@@ -2355,6 +2343,7 @@ body {
     color: var(--secondary-color);
 }
 
+.section-header h1,
 .section-header h2,
 .benefits-text h2,
 .contact-info h2 {
@@ -2770,6 +2759,7 @@ body {
     color: #d7b354;
 }
 
+.section-header h1,
 .section-header h2,
 .benefits-text h2,
 .contact-info h2,

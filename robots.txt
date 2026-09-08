@@ -1,0 +1,9 @@
+# Copiar este archivo también a /var/www/html/robots.txt
+# Google solo lee https://listosoft.com/robots.txt (raíz del dominio).
+
+User-agent: *
+Allow: /
+
+Disallow: /Inicio/components/
+
+Sitemap: https://listosoft.com/Inicio/sitemap.xml

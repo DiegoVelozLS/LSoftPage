@@ -1,5 +1,6 @@
 # Activar Rewrite Engine
 RewriteEngine On
+RewriteBase /Inicio/
 
 # Permitir CORS para archivos HTML (necesario para fetch de componentes)
 <IfModule mod_headers.c>
@@ -10,11 +11,21 @@ RewriteEngine On
     </FilesMatch>
 </IfModule>
 
-# Forzar HTTPS
+# Forzar HTTPS — el hosting ya redirige HTTP→HTTPS (301). No activar aquí
+# para evitar bucles si hay proxy o SSL a nivel de servidor.
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Eliminar extensión .html
+# 301: /Inicio/index.html → /Inicio/
+RewriteCond %{THE_REQUEST} \s/Inicio/index\.html[\s?] [NC]
+RewriteRule ^index\.html$ /Inicio/ [R=301,L]
+
+# 301: URLs con .html → URL limpia (excepto /Inicio/components/ por el fetch)
+RewriteCond %{THE_REQUEST} \s/Inicio/(.+?)\.html[\s?] [NC]
+RewriteCond %{REQUEST_URI} !/components/ [NC]
+RewriteRule ^.+\.html$ /Inicio/%1 [R=301,L,QSA]
+
+# Internamente servir el .html cuando la URL no lleva extensión
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [L]

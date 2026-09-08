@@ -7,21 +7,31 @@
     <title>Centro de Soporte | Listosoft ERP</title>
     <meta name="description"
         content="Centro de ayuda y soporte técnico de Listosoft. Contacte a nuestro equipo, acceda a manuales y recursos para optimizar su gestión.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://listosoft.com/Inicio/pages/soporte">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://listosoft.com/pages/soporte.html">
+    <meta property="og:url" content="https://listosoft.com/Inicio/pages/soporte">
     <meta property="og:title" content="Centro de Soporte | Listosoft ERP">
     <meta property="og:description"
         content="Asistencia técnica especializada y recursos para usuarios de Listosoft ERP.">
-    <meta property="og:image" content="https://listosoft.com/assets/IsotipoListosoft.png">
+    <meta property="og:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://listosoft.com/Inicio/pages/soporte">
+    <meta property="twitter:title" content="Centro de Soporte | Listosoft ERP">
+    <meta property="twitter:description"
+        content="Asistencia técnica especializada y recursos para usuarios de Listosoft ERP.">
+    <meta property="twitter:image" content="https://listosoft.com/Inicio/assets/IsotipoListosoft.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../styles.css?v=20260907">
     <link rel="stylesheet" href="../estilos/mockup.css">
     <!-- Reutilizamos estilos de módulos para consistencia en grids y headers -->
     <link rel="stylesheet" href="../estilos/modulos.css">
-    <link rel="icon" href="../assets/IsotipoListosoft.png">
+    <link rel="icon" href="../assets/IsotipoListosoft.ico" type="image/x-icon">
 
     <style>
         /* Estilos específicos para la página de soporte (inline por ahora para no ensuciar styles.css global innecesariamente) */
@@ -136,7 +146,33 @@
             background: #e3c67c;
             color: #111c3a;
         }
+
+        .section-header h1 {
+            font-size: clamp(2.2rem, 4vw, 3.75rem);
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://listosoft.com/Inicio/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Soporte",
+          "item": "https://listosoft.com/Inicio/pages/soporte"
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -147,7 +183,7 @@
     <section class="section">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Sistema de Tickets de Soporte</h2>
+                <h1>Centro de Soporte Técnico | Listosoft</h1>
                 <p>Trabajamos exclusivamente con un sistema de tickets para brindarle la mejor atención y seguimiento a
                     sus solicitudes.</p>
             </div>
@@ -293,7 +329,7 @@
     <div id="footer-container"></div>
 
     <!-- Scripts -->
-    <script src="../components.js?v=20260907"></script>
+    <script src="../components.js?v=20260908d"></script>
     <script src="../script.js?v=20260907"></script>
 
     <!-- Lucide Icons -->
