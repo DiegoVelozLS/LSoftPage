@@ -2103,9 +2103,32 @@ footer {
     animation: scroll 40s linear infinite;
 }
 
+.carouselClientes-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 168px;
+    height: 96px;
+    margin: 0;
+    padding: 18px 20px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.carouselClientes-item:hover {
+    border-color: #3b5b99;
+    box-shadow: 0 6px 24px rgba(59, 91, 153, 0.12);
+}
+
 .carouselClientes-track img {
-    height: 60px;
-    margin: 0 40px;
+    width: 100%;
+    height: 100%;
+    max-width: 130px;
+    max-height: 56px;
+    object-fit: contain;
     flex-shrink: 0;
 }
 
@@ -2528,17 +2551,17 @@ body {
 }
 
 .carouselClientes-track {
-    gap: 64px;
+    gap: 16px;
+    align-items: center;
 }
 
 .carouselClientes-track img {
-    max-width: 125px;
-    max-height: 40px;
     filter: grayscale(1);
     opacity: 0.58;
+    transition: filter 0.35s ease, opacity 0.35s ease;
 }
 
-.carouselClientes-track img:hover {
+.carouselClientes-item:hover img {
     filter: grayscale(0);
     opacity: 1;
 }
@@ -2810,6 +2833,10 @@ body {
     opacity: 0.48;
 }
 
+.carouselClientes-item:hover img {
+    opacity: 1;
+}
+
 .form-box {
     border-top-color: #c69a2d;
     box-shadow: 0 12px 30px rgba(17, 28, 58, 0.06);
@@ -2862,17 +2889,26 @@ body {
     background: linear-gradient(270deg, var(--bg-light) 0%, rgba(246, 248, 251, 0) 100%);
 }
 
+.carouselClientes-item {
+    width: 176px;
+    height: 104px;
+}
+
 .carouselClientes-track img {
-    height: 68px;
-    max-width: 150px;
-    max-height: 52px;
+    max-width: 140px;
+    max-height: 58px;
 }
 
 @media (max-width: 600px) {
+    .carouselClientes-item {
+        width: 148px;
+        height: 88px;
+        padding: 14px 16px;
+    }
+
     .carouselClientes-track img {
-        height: 60px;
-        max-width: 132px;
-        max-height: 46px;
+        max-width: 118px;
+        max-height: 48px;
     }
 }
 
@@ -2901,72 +2937,70 @@ body {
 
 .module-overview {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
 
 .module-overview-card {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     min-height: 100%;
-    padding: 28px 24px;
+    padding: 28px 26px;
     background: var(--white);
     border: 1px solid var(--border-color);
     border-radius: 12px;
     color: inherit;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
     transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .module-overview-card:hover {
-    border-color: #bfdbfe;
+    border-color: #c9d9f5;
     box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .module-overview-card .icon-box {
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 44px;
     height: 44px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #edf2ff;
+    box-shadow: none;
+}
+
+.module-overview-card .icon-box i {
+    width: 22px;
+    height: 22px;
+    color: #3b5b99;
 }
 
 .module-overview-card h3 {
     margin: 0;
     color: var(--primary-color);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 650;
-    letter-spacing: -0.03em;
-    line-height: 1.25;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
 }
 
 .module-overview-card p {
     margin: 10px 0 0;
     color: var(--text-light);
     font-size: 0.92rem;
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
-.module-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: auto;
-    padding-top: 22px;
+#modulos .module-directory-cta {
+    justify-content: center;
 }
 
-.module-tags span {
-    display: inline-flex;
-    align-items: center;
-    padding: 5px 10px;
-    border-radius: 999px;
-    background: #f1f5f9;
-    color: var(--text-dark);
-    font-size: 0.75rem;
-    font-weight: 600;
-    line-height: 1;
-}
-
-@media (max-width: 1100px) {
+@media (max-width: 960px) {
     .module-overview {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }

@@ -1,0 +1,12 @@
+# IMPORTANTE: copiar este archivo a /var/www/html/robots.txt
+# (debe quedar como https://listosoft.com/robots.txt — NO dentro de /Inicio/)
+#
+# Google y los SEO checkers solo leen robots.txt en la raíz del dominio.
+# El archivo dentro de /Inicio/robots.txt lo ignoran.
+
+User-agent: *
+Allow: /
+
+Disallow: /Inicio/components/
+
+Sitemap: https://listosoft.com/Inicio/sitemap.xml
